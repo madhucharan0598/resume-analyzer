@@ -61,9 +61,7 @@ async function loadDashboard(){
     })
 
   }catch(error){
-
     console.error(" DASHBOARD ERROR:", error)
-
     alert("Error loading dashboard")
   }
 }
