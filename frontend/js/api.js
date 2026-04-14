@@ -1,7 +1,5 @@
 const API_URL = "https://resume-analyzer-ac3b.onrender.com/api"
 
-/* -------- AUTH -------- */
-
 async function registerUser(data) {
 
   const res = await fetch(`${API_URL}/auth/register`, {
@@ -24,16 +22,12 @@ async function loginUserAPI(data) {
   return res.json()
 }
 
-/* -------- RESUME -------- */
-
-
-/* GET RESUMES */
 
 async function getResumesAPI() {
 
   const token = localStorage.getItem("token")
 
-  const res = await fetch("http://localhost:5000/api/resume", {
+  const res = await fetch(`${API_URL}/api/resume`, {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -42,7 +36,6 @@ async function getResumesAPI() {
   return res.json()
 }
 
-/* UPLOAD */
 async function uploadResumeAPI(file) {
 
   const formData = new FormData()
