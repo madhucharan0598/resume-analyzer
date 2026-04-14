@@ -2,7 +2,6 @@ const multer = require("multer")
 const path = require("path")
 
 const storage = multer.diskStorage({
-
   destination: (req, file, cb) => {
     cb(null, "uploads/")
   },
@@ -11,16 +10,11 @@ const storage = multer.diskStorage({
     const uniqueName = Date.now() + path.extname(file.originalname)
     cb(null, uniqueName)
   }
-
 })
 
-/* 🔥 FILE FILTER */
 const fileFilter = (req, file, cb) => {
-
   const allowedTypes = [".pdf", ".docx"]
-
   const ext = path.extname(file.originalname).toLowerCase()
-
   if (allowedTypes.includes(ext)) {
     cb(null, true)
   } else {
@@ -28,7 +22,6 @@ const fileFilter = (req, file, cb) => {
   }
 }
 
-/* 🔥 LIMIT FILE SIZE */
 const upload = multer({
   storage,
   fileFilter,
