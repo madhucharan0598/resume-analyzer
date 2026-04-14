@@ -1,4 +1,4 @@
-const API_URL = "https://resume-analyzer-ac3b.onrender.com"
+const API_URL = "https://resume-analyzer-ac3b.onrender.com/api"
 
 /* -------- AUTH -------- */
 
