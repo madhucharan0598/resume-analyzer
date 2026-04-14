@@ -1,22 +1,11 @@
-/**
- * AI Resume Analyzer (Rule-Based - Phase 1)
- */
-
 function analyzeResume(text) {
-
   text = text.toLowerCase()
-
-  /* ------------------ SKILLS DATABASE ------------------ */
   const skillsDB = [
     "javascript","react","node","express","mongodb",
     "python","java","c++","sql","aws","docker",
     "machine learning","data science","html","css"
   ]
-
-  /* ------------------ EXTRACT SKILLS ------------------ */
   const skills = skillsDB.filter(skill => text.includes(skill))
-
-  /* ------------------ JOB ROLES ------------------ */
   let jobRoles = []
 
   if (skills.includes("react") || skills.includes("javascript")) {
@@ -35,12 +24,9 @@ function analyzeResume(text) {
     jobRoles.push("ML Engineer")
   }
 
-  /* ------------------ SCORE ------------------ */
   let score = Math.min(100, skills.length * 10)
-
-  /* ------------------ SUGGESTIONS ------------------ */
   let suggestions = []
-
+  
   if (!skills.includes("projects")) {
     suggestions.push("Add project experience")
   }
