@@ -1,6 +1,7 @@
 const User = require("../models/User")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+
 exports.register = async (req, res) => {
   const { name, email, password } = req.body
   const exists = await User.findOne({ email })
@@ -9,6 +10,7 @@ exports.register = async (req, res) => {
   await User.create({ name, email, password: hashed })
   res.json({ message: "User Registered" })
 }
+
 exports.login = async (req, res) => {
   const { email, password } = req.body
   const user = await User.findOne({ email })
