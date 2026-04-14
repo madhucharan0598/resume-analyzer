@@ -10,11 +10,8 @@ exports.uploadResume = async (req, res) => {
         message: "No file uploaded"
       });
     }
-
     const filePath = req.file.path;
-
     const text = await parseResume(filePath);
-
     if (!text || !text.trim()) {
       return res.status(400).json({
         success: false,
@@ -23,7 +20,6 @@ exports.uploadResume = async (req, res) => {
     }
 
     const analysis = analyzeResume(text);
-
     const resume = await Resume.create({
       userId: req.user.id,
       fileName: req.file.filename,
